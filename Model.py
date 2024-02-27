@@ -26,5 +26,8 @@ print(responseMessage)
 
 def getResponse(prompt):
     model = genai.GenerativeModel("gemini-pro")
-    response = model.generate_content(prompt)
-    return response.text
+    try:
+        response = model.generate_content(prompt)
+        return response.text
+    except Exception as e:
+        return e
