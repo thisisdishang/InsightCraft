@@ -1,12 +1,13 @@
-import google.generativeai as genai
-from Util import apiKey
+from configure import textModel
 
-genai.configure(api_key=apiKey[::-1])
-model = genai.GenerativeModel("gemini-pro")
-chat = model.start_chat(history=[{"user":"Hello AI!","model":"Yes! ask for any assistance you need."}])
-print(chat)
+chat = textModel.start_chat()
 
 response = chat.send_message("In one sentence, explain how a computer works to a young child.")
 print(response.text)
+# print(chat.history)
 
-#print(response.candidates)
+response = chat.send_message("Okay, how about a more detailed explanation to a high schooler?", stream=True)
+
+for chunk in response:
+    print(chunk.text)
+    print("-"*80)

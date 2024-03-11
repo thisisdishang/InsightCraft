@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
-import Model
+import configure
 
 # Create the main window
 root = tk.Tk()
@@ -12,7 +12,7 @@ result = tk.StringVar()
 
 def onSearchButtonClick():
     global result
-    result = Model.getResponse(prompt=promptField.get())
+    result = configure.getPromptResponse(prompt=promptField.get())
     outputLabel.config(text = result)
 
 # Create a style object
