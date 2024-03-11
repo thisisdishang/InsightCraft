@@ -1,6 +1,4 @@
-import google.generativeai as genai
 import textwrap
-from configure import textModel
 from IPython.display import Markdown
 
 def toMarkdown(text):

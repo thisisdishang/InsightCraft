@@ -2,12 +2,21 @@ from configure import textModel
 
 chat = textModel.start_chat()
 
-response = chat.send_message("In one sentence, explain how a computer works to a young child.")
-print(response.text)
-# print(chat.history)
+try:
+    while True:
+        print()
 
-response = chat.send_message("Okay, how about a more detailed explanation to a high schooler?", stream=True)
+        userPrompt = input("User: ")
+        response = chat.send_message(userPrompt)
 
+        print(response.text)
+        print("-"*80)
+
+except KeyboardInterrupt:
+    print(chat.history)
+
+'''
 for chunk in response:
     print(chunk.text)
     print("-"*80)
+'''
