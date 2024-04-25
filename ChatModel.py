@@ -7,8 +7,12 @@ try:
         print()
 
         userPrompt = input("User: ")
+        if(userPrompt == "exit"):
+            raise KeyboardInterrupt()
+
         response = chat.send_message(userPrompt)
 
+        print()
         print(response.text)
         print("-"*80)
 

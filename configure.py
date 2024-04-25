@@ -1,7 +1,7 @@
 import google.generativeai as genai
-from Util import apiKey
+from util import apiKey
 
-genai.configure(api_key=apiKey[::-1])
+genai.configure(api_key=apiKey)
 
 textModel = genai.GenerativeModel("gemini-pro")
 imageModel = genai.GenerativeModel('gemini-pro-vision')
